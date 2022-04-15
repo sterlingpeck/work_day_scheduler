@@ -1,3 +1,8 @@
+// Display date
+function displayTodaysDate() {
+  $("#currentDay").text(moment().format('MMMM Do YYYY'));
+}
+
 //Creates scheduled item
 $(".taskcontent").on("click", "p", function() {
   var content = $(this).text().trim();
@@ -19,3 +24,12 @@ $('.taskcontent').on('blur', 'textarea', function() {
   $(this).replaceWith(newPar);
 });
 
+// Loads scheduled items from local storage
+function loadTasks() {
+  for (let i = 1; i < 9; i++) {
+      $('#' + i).find('p').text(localStorage.getItem(i));
+  }
+}
+
+loadTasks();
+displayTodaysDate();
