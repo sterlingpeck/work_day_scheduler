@@ -31,5 +31,20 @@ function loadTasks() {
   }
 }
 
-loadTasks();
+//Color schedule sections
+function colorCode() {
+  for (let i = 1; i < 9; i++) {
+      var currentRowEl = $('#' + i);
+      if (i < "hour") {
+          currentRowEl.addClass('past'); 
+      } else if (i == "hour") {
+          currentRowEl.addClass('present'); 
+      } else {
+          currentRowEl.addClass('future'); 
+      }
+  }
+}
+
 displayTodaysDate();
+loadTasks();
+colorCode();
